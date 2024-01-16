@@ -15,7 +15,7 @@ public class EntityDtoUtil {
         UserStock stock = new UserStock();
         stock.setUserId(request.getUserId());
         stock.setStockSymbol(request.getStockSymbol());
-        stock.setQuantity(request.getQuantity());
+        stock.setQuantity(0);
 
         return stock;
     }
