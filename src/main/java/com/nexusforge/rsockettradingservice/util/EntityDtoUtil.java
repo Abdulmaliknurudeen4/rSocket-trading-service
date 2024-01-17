@@ -1,9 +1,6 @@
 package com.nexusforge.rsockettradingservice.util;
 
-import com.nexusforge.rsockettradingservice.dto.StockTradeRequest;
-import com.nexusforge.rsockettradingservice.dto.StockTradeResponse;
-import com.nexusforge.rsockettradingservice.dto.TradeStatus;
-import com.nexusforge.rsockettradingservice.dto.TradeType;
+import com.nexusforge.rsockettradingservice.dto.*;
 import com.nexusforge.rsockettradingservice.dto.user.TransactionRequest;
 import com.nexusforge.rsockettradingservice.dto.user.TransactionType;
 import com.nexusforge.rsockettradingservice.entity.UserStock;
@@ -39,5 +36,11 @@ public class EntityDtoUtil {
         response.setPrice(price);
 
         return response;
+    }
+
+    public static UserStockDto toUserStockDto(UserStock stockDto) {
+        UserStockDto dto = new UserStockDto();
+        BeanUtils.copyProperties(stockDto, dto);
+        return dto;
     }
 }
