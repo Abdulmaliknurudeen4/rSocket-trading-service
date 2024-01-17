@@ -30,6 +30,7 @@ public class TradeService {
                 buyStock(tradeRequest, transactionRequest) : sellProcess(tradeRequest, transactionRequest);
 
         return responseMono
+                .doOnNext(System.out::println)
                 .defaultIfEmpty(EntityDtoUtil.toTradeResponse(tradeRequest, TradeStatus.FAILED, 0));
     }
 

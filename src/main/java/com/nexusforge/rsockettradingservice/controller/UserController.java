@@ -29,14 +29,12 @@ public class UserController {
     }
 
     @GetMapping("{userId}/stocks")
-    public Flux<ResponseEntity<UserStockDto>> userStock(@PathVariable("userId") String userId) {
+    public Flux<UserStockDto> userStock(@PathVariable("userId") String userId) {
         return userStockService
-                .getUserStockAss(userId)
-                .map(ResponseEntity::ok)
-                .defaultIfEmpty(ResponseEntity.badRequest().build());
+                .getUserStockAss(userId);
     }
 
-    @GetMapping("{userId}/stockslist")
+    @GetMapping("{userId}/stocksList")
     public Flux<ResponseEntity<StockTickDto>> userStockList(@PathVariable("userId") String userId) {
         return userStockService
                 .getUserStock(userId)
